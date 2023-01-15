@@ -1,0 +1,453 @@
+
+
+/*  NOTERA: Jag skriver min css utifrån det att jag har byggt en html ram först, denna ram gjorde jag i så komplext utaförande som möjligt, dvs i "stor skrämsläge". 
+    Jag kommer nu att skriva min css och utgå från att göra "html-ramen" direkt i ett mobil-format. Dvs att jag kommer istället för att sätta  en "max-width" på media query så sätter
+    jag istället en "min-width". Tanken är att på så sätt kan jag lägga en simpel grund först mha färger, divs etc för att sedan seccisivt öka komplexiteten under tidens gång. 
+    Därav kommer jag inte samla mina media queries utan istället relatera dem till det område jag hanterar. 
+    
+    Förtydligande så: Namngivning av mina färger går med samma tanke som med fonts. Desto tjockare font desto högre nummer, a.e desto tunnare font desto lägre nummer. Samma med färgerna här,
+    Ljusare färg --> Lägre nummer a.e Mörkare färg --> Högre nummer*/
+:root{
+
+    --clr-primary-200: #F3EED9;
+    --clr-primary-400: #824936;
+
+    --clr-neutral-100: #FFF;
+    --clr-neutral-900: #222C2A;
+
+    --clr-neon: hsl(317 100% 54%);
+    --clr-bg: hsl(323 21% 16%);
+    
+
+    --ff-royal:  'Bonheur Royale', cursive;
+    --ff-primary: 'Playfair Dispaly', serif;
+    --ff-accent: 'Rubik', sans-serif;
+}
+
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+/*  Detta är min absoluta grund skiss för projektet. 
+    Där jag ser till att dedikera lite grunder bara.
+    Jag gör detta för även h1,h2,h3 nedan.  */
+body{
+
+    font-family: var(--ff-primary);
+    font-weight: 400;
+    font-size: 1.3125rem;
+    line-height: 1.4;
+
+}
+
+/* Jag återställer bara min margin här. inget fancy */
+
+body,
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--clr-primary-400);
+    font-family: var(--ff-accent);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 1em; 
+}
+
+h2,
+h3,
+p {
+    margin-bottom: 1em; /* Detta då jag nollställde margin åvan.*/
+}
+p{
+    font-family: var(--ff-accent);
+    font-weight: 400;
+}
+
+/*  Då vi endast skulle bibehålla en css fil för styleing så fick jag namge lite roligt...
+
+    Allt som heter något relaterat till 'royal' är kopplat till classic.html  
+    Då jag ville återskapa en mycket mer "royal-känsla" så bestämmde jag mig för att avika på den sidan
+    vad gällande font. Därav nedanstående. */
+
+
+.text-center-royal-h1{
+
+    color: var(--clr-primary-400);
+    font-family: var(--ff-royal);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 0.5em;               /* Snyggt sätt att få Margin att bli anpassad till font-storleken*/
+    font-size: 1.9em;
+
+}   
+
+.text-center-royal{
+    color: var(--clr-primary-400);
+    font-family: var(--ff-royal);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 1em; 
+    font-size: 3.5em;
+}
+
+.text-center-royal-h2{
+    text-align: center;
+    
+}
+
+/*  En gemensam img tag, "keep it simple stupid" , brukar fungera. */
+
+img{
+    display: block;
+    margin-bottom: 0.5em;
+    max-width: 100%;
+    
+}
+
+/*  Min logga som är relativ och dynamisk. 
+    Ansätter max bredd och höjd för att inte överskala vid
+    dynamiska röresler. */
+
+.logo{
+    position: relative;
+    max-width: 10em;
+    max-height: 5em;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-text{
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    display: inline-block;
+    border: 0.2rem double;
+    font-family: var(--ff-primary);
+    font-size: 1em;   
+}
+
+
+
+
+.text-center{
+    text-align: center;
+}
+
+header,
+section{
+    padding: 3rem 0;    /* padding på  toppen and botten*/
+
+}
+/*  Big Screens, med andra ord här tacklar jag allt över 820px men optimerar för 1920x1080
+    Med andra ord här hanteras header, section och logon då jag helt enkelt kan skala upp den till önskad storlek.*/
+@media (min-width: 52em){
+    header,
+    section{
+        padding: 5rem 0;    
+    }
+
+    .logo{
+        padding: 5.5rem 5rem 5rem 15rem ;
+    }
+    .logo-text{
+        letter-spacing: 0.5em;
+        font-size: 2.1em;
+    }
+    .header-text{
+        font-size: 2.99rem;
+    }
+    .text-center-royal-h1{
+        font-size: 3.9em;
+    }
+}
+/* 
+    Här i .container så ansetter jag helt enkelt with till 90% och max-width till 70.5rem, 
+    a.e med min 90% så finns det alltid luft kring alla objekt inom .container
+    Detta är en av key grejerna för att få allt till % och rem a.e relativt till font hos root. 
+*/
+.container{
+    margin-inline: auto; /* right and left margin handdling only*/
+    width: min(90%, 70.5rem);   
+}
+
+/*  Här skapar jag en väldigt simpel men stilren meny. 
+    Istället för att göra mycket på te.x <li> eller <Button> så lite border,
+    lite hover och lite flex så skapar jag en själv istället. 
+    
+    Igen, viktigt att kommaihåg är att detta är skrivet för mobilformat därav är 
+    flex-direction column och inte row. 
+*/
+.container--button{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 0.25rem;
+    align-items: center;
+
+
+}
+
+.btn-2{
+    font-size: 2rem;
+    border: 0.17rem solid black ;
+    border-radius: 0.5rem;
+    padding: 0.25em 1em;
+}
+.btn-2:hover{
+
+    border: 0.25rem double black ;
+    transition: transfrom 0.3s ease;
+    gap: 0.55rem;
+
+} 
+
+/*  Big Screens, med andra ord här tacklar jag allt över 820px men optimerar för 1920x1080 
+    Jag gör samma sak här för min meny som för headern och loggan tidigare, enda viktiga är att
+    jag faktiskt valde att behålla "flex-direction: column" Det gav en mycket bättre helhet på 
+    headern i relation till loggan. */
+@media (min-width: 52em){
+    .container--button{
+        flex-direction: column;
+        align-content: center;
+        gap: 1.2rem;
+        width: 10rem;
+        max-width: 10%;
+        
+    }
+
+    .btn-2{
+        font-size: 2rem;
+        border: 0.17rem solid black ;
+        border-radius: 0.5rem;
+        margin-right: 2.5rem;
+        padding: 0.25em 1em;
+    }
+}
+ 
+/*  Split är faktiskt den sanna hjälten! Detta är egentligen varför jag återställde min margin. 
+    För om jag inte återställer det innan jag använder mig av flex box och direction column så kolappsar
+    den över sig själv. */
+.split {
+    display: flex;
+    flex-direction: column;
+}
+
+.button{
+
+    width: 1rem;
+
+}
+
+/*  Big Screens, med andra ord här tacklar jag allt över 820px men optimerar för 1920x1080
+    Igen efter som jag endast söker efter att skala upp, så kan jag genomföra det och få lika kolumner. */
+@media (min-width: 52em){
+
+    .split{
+        flex-direction: row;
+    }
+
+    .split>*{
+        flex-basis: 100%;
+    }
+
+    .split>* + * {          /* Detta hanterar alla syskon som har haft syskon före sig själv a.e Vi har en div bredvid en annan div. */
+        margin-left: 2em;
+    }
+   
+}
+
+
+.container--narrow{
+    max-width: 35rem;
+    font-family: var(--ff-accent);
+    font-size: 0.79rem;
+}
+
+
+footer{
+    padding: 3rem 0;    
+    text-align: center;
+    place-items: center;
+    background-color: var(--clr-bg);
+    
+}
+
+
+.links{
+    display: flex;
+    flex-direction: row;
+    gap: 3.5rem;
+    align-items: center;
+    flex-wrap: wrap; 
+    padding-bottom: 2em;
+}
+/*  Här så skapar jag alltså mina knappar som är placerade i min footer. 
+    Jag skapar först en grund knapp, där jag egentligen bara sätter alla grund-principer, 
+    jag använder mig av mina färg element, ser till att ändra cursorn till en pointer, då 
+    jag inte använder mig av <button> utan <p> & <a>.  */
+.neon-button{
+    display: inline-block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-neon);
+    border: var(--clr-neon) 0.125em solid; 
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+     /* Här ifrån är det mer eller mindre singulärt styiling som appliceras.
+        Notervärt är " inset " vid box-shadow då det är den som tillför att neonen upplevs lysa även 
+        på insidan ramen runt knappen.  */
+    text-shadow: 
+    0 0 0.125em hsl(0 0% 100% /0.7),
+    0 0 0.125em currentColor;
+
+    box-shadow: inset 0 0 0.75em 0 var(--clr-neon),
+    0 0 0.75em 0 var(--clr-neon);
+
+    position: relative;
+
+}
+/*  För att få "neon-lyset" att kännas 3D, dvs den "reflektion" som återspeglas framför knapparna  
+    så nyttjas "::before" man skapar en ruta över den befintliga rutan som via "top" förflyttas
+    verticalt 120% och sedan även roteras. */
+.neon-button::before{
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: var(--clr-neon);
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform: perspective(1.5em) rotateX(30deg)
+    scale(1,0.40);
+    filter: blur(0.9em);
+    opacity: 0.8;
+
+}
+
+/*  Det ända som egentligen är noterbar vid denna är att jag ansätter opacity: 0; 
+    Detta då jag vill ha en "fade in" effect vid hover samt att jag vill få ett
+    "neon tillskott" dvs jag placerar ytterligare en ruta bakom den orginella knappen som 
+    vid hover genomför en transition i opacity på 150ms från 0 till 1. alternativt 1 till 0. */
+.neon-button::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    box-shadow: 0 0 2em 0.5em var(--clr-neon);
+    opacity: 0;
+    transition: opacity 150ms linear;
+
+}
+
+.neon-button:hover::after{
+    opacity: 1;
+}
+
+
+.neon-button:hover,
+.neon-button:focus{
+
+    background: var(--clr-neon);
+    color: var(--clr-bg);
+    text-shadow: none;
+}
+
+
+/* Big Screens, med andra ord här tacklar jag allt över 820px men optimerar för 1920x1080*/
+@media (min-width: 52em){
+    
+    .links{
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+
+        align-content: center;
+        align-items: center;
+        width: 100%;
+
+}
+}
+
+
+/*  Här Applicerar jag ALL färgkontrol för de olika instanserna.  Jag insåg vid detta läge att det gick snabbare att bara använda sig av HEX färger direkt istället för att köra olika --clr-primary-### 
+    Dock så vill jag trycka på att det är både mer proffisionellt, strukturerat och smart att använda sig av "Färg familjer", speciellt när man skalar upp projekten ännu större och man är flera som arbetar samtidigt
+    med samma kod. Annars finns det STOR risk att man blandar färger hej vilt! */
+
+.bg-light{
+    background-color: var(--clr-primary-200);
+}
+.bg-light-zombie{
+    background-color: #78C165;
+}
+.bg-light-classic{
+    background-color: #FFDC1A;
+}
+.bg-light-hipster{
+    background-color: #A2C0A6;
+}
+
+
+
+
+
+
+.bg-primary{
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-primary-400);
+}
+.bg-primary-zombie{
+    color: var(--clr-neutral-100);
+    background-color: #64484F;
+}
+.bg-primary-classic{
+    color: var(--clr-neutral-100);
+    background-color: #0A2662;
+}
+.bg-primary-hipster{
+    color: var(--clr-neutral-100);
+    background-color: #AF3A30;
+}
+
+
+
+.bg-dark{
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-neutral-900);
+}
+.bg-dark-zombie{
+    color: var(--clr-neutral-100);
+    background-color: #BBE593;
+}
+.bg-dark-classic{
+    color: var(--clr-neutral-100);
+    background-color: #1D82D2;
+}
+.bg-dark-hipster{
+    color: var(--clr-neutral-100);
+    background-color: #F2D51F;
+}
+
+.bg-primary h2,
+.bg-dark h2 {
+    color: var(--clr-primary-200);
+}
