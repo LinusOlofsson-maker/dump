@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linus Olofsson</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Playfair+Display:ital@1&family=Rubik:ital,wght@0,500;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!--  Här strukturerar jag upp min header med klasser så jag kan både referera till färgtaggar och texttaggar i css.
+      Headern bygger på 3 objekt, en logga, en rubrik och en meny där. Jag ser däremot till att särskillja färgtaggen från 
+      de andra taggarna för att kunna jobba sepparat mot denna fil i minn css. -->
+    <header class="bg-light-hipster text-center">
+        <div class="logo">
+                <p class="logo-text">Demo Official</p>
+        </div>
+        <div class="split split-button">
+            <div class="container container--narrow">
+                <p>Hit me up with an IPA or Kombucha Duuude.</p>
+                <h1 class="header-text">"He was downing kombucha like a Brooklyn hipster on a bender and pacing the
+                    hallways endlessly"</h1>
+                <p>-- Loretta Nyhan</p>
+            </div>
+            <div class="contaioner container--button">
+                <a class="btn-2" href="index.html">Home</a>
+                <a class="btn-2" href="zombies.html">Zombies</a>
+                <a class="btn-2" href="hipster.html">Hipsters</a>
+                <a class="btn-2" href="classic.html">Classics</a>
+
+            </div>
+        </div>
+    </header>
+    <!--Här strukturerar jag upp min första sction med ett div system där jag omsluter allt i en container. Samt delar in de olika områdena i splitar för att 
+            kunna strukturera upp flex boxar/kolumner/rader.
+            Jag inkluderar även bildobjekt här i sepparata divar för att kunna hantera dem senare med css.
+            Jag bevarar även container, split , logo etc här då jag kan relatera den grundliga html strukturen via dem i cssen för alla.
+        -->
+    <section>
+        <div class="container">
+            <h2 class="text-center">“ Everybody is wrong about everything, just about all the time. ” <br>-- Chuck
+                Klosterman</h2>
+
+            <div class="split">
+
+                <div>
+
+                    <p> I'm baby blue bottle chia everyday carry deep v bushwick fixie chicharrones affogato gastropub
+                        bodega boys. Swag snackwave vaporware pickled direct trade affogato sriracha etsy helvetica
+                        cardigan woke. Jean shorts schlitz ugh four dollar toast, cliche JOMO helvetica prism lomo irony
+                        unicorn mukbang iceland. Normcore bitters etsy taxidermy glossier knausgaard. Art party bitters
+                        trust fund tumblr you probably haven't heard of them Brooklyn pork belly, leggings etsy iPhone
+                        forage asymmetrical tilde. Squid iPhone dreamcatcher thundercats YOLO occupy man bun. Offal
+                        bespoke XOXO lyft.</p>
+
+                </div>
+                <div>
+
+                    <img src="photos/hipster/hipster_main.jpg" alt="hipster_main_duuuuude">
+
+                </div>
+                <div>
+
+                    <p>Messenger bag roof party sustainable celiac bicycle rights small batch distillery disrupt pop-up.
+                        Kinfolk mukbang kitsch, vaporware lomo praxis photo booth cronut same direct trade chicharrones
+                        palo santo. Cred viral butcher gatekeep, leggings cornhole chillwave shabby chic chambray. Cloud
+                        bread kogi readymade, umami activated charcoal portland actually. Brooklyn freegan bespoke,
+                        bitters coloring book JOMO four dollar toast subway tile kogi pour-over. Quinoa stumptown trust
+                        fund locavore pop-up.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!--        Här strukturerar jag upp min andra sction med ett div system där jag omsluter allt i en container. Samt delar in de olika områdena i splitar för att 
+            kunna strukturera upp flex boxar/kolumner/rader.
+            Jag inkluderar även bildobjekt här i sepparata divar för att kunna hantera dem senare med css.
+            Tanken är att ha få en hemsida som användaren upplever som flytande, jag kommer därför att åtskillja de olika sektionerna med färg. Notera därav classen.
+       
+            Igen så är sectionen endast avskilld för designskäl. 
+        -->
+    <section class="bg-dark-hipster">
+        <div class="container">
+
+            <div class="split">
+
+                <div>
+
+                    <h2>Brewed custom for you</h2>
+                    <p>Selfies biodiesel sartorial, brunch cold-pressed affogato irony chicharrones kitsch knausgaard 3
+                        wolf moon single-origin coffee squid. Banh mi craft beer keffiyeh, deep v yr tofu paleo godard
+                        mumblecore polaroid trust fund keytar knausgaard ethical next level. Pinterest viral salvia
+                        before they sold out. Lo-fi dreamcatcher biodiesel JOMO wolf helvetica. Beard raw denim fam woke
+                        cold-pressed yes plz copper mug humblebrag normcore palo santo stumptown green juice bespoke
+                        try-hard readymade. Shaman mixtape four loko, butcher keffiyeh meditation swag flannel godard
+                        occupy pork belly unicorn. Disrupt retro coloring book, shabby chic big mood ramps meditation
+                        knausgaard offal hexagon.</p>
+
+                </div>
+
+                <div>
+
+                    <img src="photos/hipster/drink1.jpg" alt="hipster_drink1">
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!--        Här strukturerar jag upp min tredje och sista sction med ett div system där jag omsluter allt i en container. Samt delar in de olika områdena i splitar för att 
+            kunna strukturera upp flex boxar/kolumner/rader.
+            Detta är väldigt likt section 1 och 2 vilket också är tanken för att skapa just "flytet" för användaren 
+            men samtidig kunna göra den responsiv vilket kommer kräva en del pill för att lösa.
+
+            Återigen så återanvänder jag mycket för att hålla mig till endast 1 css fil. 
+            Försöker därmed endast att skapa nya classer så sällan som möjligt.
+       
+        -->
+    <section class="bg-primary-hipster">
+
+        <div class="container">
+            <div class="split">
+
+                <div>
+
+                    <img src="photos/hipster/drink3.jpg" alt="hipster_drink3">
+                </div>
+
+                <div>
+
+                    <h2>Poured with care</h2>
+                    <p>Tote bag pug XOXO kogi street art. Butcher flexitarian readymade shaman retro, listicle YOLO
+                        ennui vice. Cornhole mustache keytar humblebrag, man bun gastropub blue bottle 8-bit craft beer
+                        gochujang occupy knausgaard chillwave snackwave tumblr. Lomo pour-over fashion axe tousled,
+                        try-hard williamsburg pork belly wayfarers mukbang. Locavore neutra heirloom quinoa cliche, +1
+                        keffiyeh art party palo santo pop-up raw denim fashion axe wolf roof party.</p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--        Slutligen strukturerar jag upp min Footer med ett div system där jag omsluter allt i en container. 
+            Samt delar in de olika områdena i splitar för att kunna strukturera upp flex boxar/kolumner/rader.
+            jag skapar också en div för länkar, där jag kommer att bygga egna knappar utifrån css. 
+            I mitten så placerar jag en <li> lista för att försöka återskapa en mordern känsla till hemsidan.. 
+                
+            Footern bestämde jag mig att lämna exakt lika dan på alla sidor för jag ville skapa en känsla av 
+            "tillhörighet"/"igenkänsla" för användaren.
+
+       -->
+
+    <footer>
+        <div class="container">
+
+            <div class="split">
+                <div class="links">
+                    <a href="https://www.instagram.com/olofssonlinuss/">
+                        <p class="neon-button">Instagram</p>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100010071226078">
+                        <p class="neon-button">Facebook</p>
+                    </a>
+                    <a href="https://github.com/LinusOlofsson-maker">
+                        <p class="neon-button">Github</p>
+                    </a>
+                </div>
+                <ul>
+                    <li>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</li>
+                    <li>A wonderful serenity has taken possession of my entire soul, like these sweet mornings</li>
+                    <li>But I must explain to you how all this mistaken idea of denouncing pleasure</li>
+                    <li>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in</li>
+                </ul>
+                <div>
+                    <p> 100% copyrighted by yours truly!</p>
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+</body>
+
+</html>
