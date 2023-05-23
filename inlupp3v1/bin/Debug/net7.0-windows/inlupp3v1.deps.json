@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "inlupp3v1/1.0.0": {
+        "runtime": {
+          "inlupp3v1.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "inlupp3v1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
